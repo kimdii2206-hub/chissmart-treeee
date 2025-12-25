@@ -1,10 +1,10 @@
 {
-  "title": "Trang Demo Mới",
-  "subtitle": "Nội dung cập nhật từ JSON",
-  "message": "Bây giờ trang đã hiển thị dữ liệu mới từ JSON.",
+  "title": "Trang web của tôi",
+  "subtitle": "Đây là phụ đề của tôi",
+  "message": "Đây là nội dung tôi muốn hiển thị trên trang.",
   "links": [
-    {"name": "Trang Chủ", "url": "/"},
-    {"name": "Sản Phẩm", "url": "/products"},
-    {"name": "Liên Hệ", "url": "/contact"}
+    {"name": "Trang Chủ", "url": "https://mywebsite.com"},
+    {"name": "Blog", "url": "https://mywebsite.com/blog"},
+    {"name": "Liên Hệ", "url": "https://mywebsite.com/contact"}
   ]
 }
