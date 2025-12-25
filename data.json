@@ -1,10 +1,1 @@
-{
-  "title": "Trang web của tôi",
-  "subtitle": "Đây là phụ đề của tôi",
-  "message": "Đây là nội dung tôi muốn hiển thị trên trang.",
-  "links": [
-    {"name": "Trang Chủ", "url": "https://mywebsite.com"},
-    {"name": "Blog", "url": "https://mywebsite.com/blog"},
-    {"name": "Liên Hệ", "url": "https://mywebsite.com/contact"}
-  ]
-}
+
