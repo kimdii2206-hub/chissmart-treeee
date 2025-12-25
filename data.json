@@ -1,1 +1,10 @@
-{ "title": "chào mừng đến với trang của tôi", "subtitle": "demo hiển thị dữ liệu từ json", "message": "đây là nội dung được tải từ file json. bạn có thể chỉnh sửa json để thay đổi nội dung trang.", "links": [ {"name": "trang chủ", "url": "#"}, {"name": "giới thiệu", "url": "#"}, {"name": "liên hệ", "url": "#"} ] }
+{
+  "title": "Trang Demo Mới",
+  "subtitle": "Nội dung cập nhật từ JSON",
+  "message": "Bây giờ trang đã hiển thị dữ liệu mới từ JSON.",
+  "links": [
+    {"name": "Trang Chủ", "url": "/"},
+    {"name": "Sản Phẩm", "url": "/products"},
+    {"name": "Liên Hệ", "url": "/contact"}
+  ]
+}
