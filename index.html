@@ -1,22 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live JSON Editor Demo</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    header, main, footer { margin-bottom: 20px; }
+    nav ul { list-style: none; padding: 0; display: flex; gap: 15px; }
+    nav a { text-decoration: none; color: #007BFF; }
+    nav a:hover { text-decoration: underline; }
+    textarea { width: 100%; height: 150px; margin-bottom: 10px; }
+    button { padding: 5px 15px; }
+    fieldset { margin-bottom: 20px; }
+  </style>
+</head>
+<body>
 
-<script>
-fetch('data.json')
-  .then(response => response.json())
-  .then(data => {
-    document.getElementById('title').textContent = data.title;
-    document.getElementById('subtitle').textContent = data.subtitle;
-    document.getElementById('message').textContent = data.message;
+  <header>
+    <h1 id="title">Tiêu đề mặc định</h1>
+    <h2 id="subtitle">Phụ đề mặc định</h2>
+    <nav>
+      <ul id="nav-links">
+        <li><a href="#">Trang Chủ</a></li>
+      </ul>
+    </nav>
+  </header>
 
+  <main>
+    <p id="message">Nội dung mặc định.</p>
+
+    <fieldset>
+      <legend>Chỉnh dữ liệu JSON trực tiếp</legend>
+      <textarea id="json-input">
+{
+  "title": "Trang web của tôi",
+  "subtitle": "Phụ đề demo",
+  "message": "Nội dung demo hiển thị từ JSON",
+  "links": [
+    {"name": "Trang Chủ", "url": "#"},
+    {"name": "Blog", "url": "#"},
+    {"name": "Liên Hệ", "url": "#"}
+  ]
+}
+      </textarea>
+      <br>
+      <button id="update-btn">Cập nhật trang</button>
+    </fieldset>
+  </main>
+
+  <footer>
+    <p>© 2025 Bản quyền thuộc về bạn</p>
+  </footer>
+
+  <script>
+    const titleEl = document.getElementById('title');
+    const subtitleEl = document.getElementById('subtitle');
+    const messageEl = document.getElementById('message');
     const navLinks = document.getElementById('nav-links');
-    navLinks.innerHTML = '';
-    data.links.forEach(link => {
-      const li = document.createElement('li');
-      const a = document.createElement('a');
-      a.href = link.url;
-      a.textContent = link.name;
-      li.appendChild(a);
-      navLinks.appendChild(li);
+    const textarea = document.getElementById('json-input');
+    const btn = document.getElementById('update-btn');
+
+    function updatePage(data) {
+      titleEl.textContent = data.title;
+      subtitleEl.textContent = data.subtitle;
+      messageEl.textContent = data.message;
+
+      navLinks.innerHTML = '';
+      data.links.forEach(link => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = link.url;
+        a.textContent = link.name;
+        li.appendChild(a);
+        navLinks.appendChild(li);
+      });
+    }
+
+    btn.addEventListener('click', () => {
+      try {
+        const data = JSON.parse(textarea.value);
+        updatePage(data);
+      } catch (err) {
+        alert('JSON không hợp lệ! Kiểm tra lại cú pháp.');
+      }
     });
-  })
-  .catch(err => console.error('Lỗi tải JSON:', err));
-</script>
+
+    // Khởi tạo trang với dữ liệu mặc định trong textarea
+    updatePage(JSON.parse(textarea.value));
+  </script>
+
+</body>
+</html>
