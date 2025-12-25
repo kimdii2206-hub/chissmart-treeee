@@ -1,1 +1,1 @@
-{ "title": "chào mừng đến với trang của tôi", "subtitle": "demo hiển thị dữ liệu từ json", "message": "đây là nội dung được tải từ file json. bạn có thể chỉnh sửa json để thay đổi nội dung trang.", "links": [ {"name": "trang chủ", "url": "#"}, {"name": "giới thiệu", "url": "#"}, {"name": "liên hệ", "url": "#"} ] }
+
