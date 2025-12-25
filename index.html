@@ -1,1 +1,22 @@
 
+<script>
+fetch('data.json')
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById('title').textContent = data.title;
+    document.getElementById('subtitle').textContent = data.subtitle;
+    document.getElementById('message').textContent = data.message;
+
+    const navLinks = document.getElementById('nav-links');
+    navLinks.innerHTML = '';
+    data.links.forEach(link => {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = link.url;
+      a.textContent = link.name;
+      li.appendChild(a);
+      navLinks.appendChild(li);
+    });
+  })
+  .catch(err => console.error('Lỗi tải JSON:', err));
+</script>
